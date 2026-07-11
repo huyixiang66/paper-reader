@@ -2,18 +2,14 @@
 
 **Zero-dependency paper reading skill for AI coding agents.** Read any arXiv paper with a single command — no API keys, no setup, no installation.
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/paper-reader?style=flat&logo=github)](https://github.com/yourusername/paper-reader/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/huyixiang66/paper-reader?style=flat&logo=github)](https://github.com/huyixiang66/paper-reader/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![arXiv API](https://img.shields.io/badge/arXiv-API-free-b31b1b?style=flat)](https://arxiv.org/help/api/)
 [![Semantic Scholar](https://img.shields.io/badge/Semantic_Scholar-API-free-orange?style=flat)](https://www.semanticscholar.org/product/api)
-[![Codex CLI](https://img.shields.io/badge/Codex_CLI-Compatible-green?style=flat&logo=data:image/svg+xml;base64,...)](https://github.com/openai/codex)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-Compatible-purple?style=flat&logo=anthropic)](https://claude.ai/code)
-[![Cursor](https://img.shields.io/badge/Cursor-Compatible-orange?style=flat&logo=data:image/svg+xml;base64,...)](https://cursor.sh)
 
 > **TL;DR:** `paper-reader 1706.03762` → instant structured paper summary.  
-> `paper-reader 1706.03762 - mode: note` → full Chinese research note.  
-> `paper-reader 1706.03762 - mode: deep` → PDF download + full text analysis.
+> Designed for **beginners in scientific research** who want to quickly understand, summarize, and take structured notes on academic papers.
 
 ## ✨ Features
 
@@ -24,6 +20,21 @@
 - **Anti-hallucination** — separates paper claims, evidence, inference, and open questions
 - **Bilingual terminology** — `中文（English Term）` format with inline explanations
 - **Structured output** — follows the paper's own section order (Abstract → Introduction → Method → Experiments → Conclusion)
+
+## 🎯 Who is this for?
+
+**Paper Reader is designed for beginners in scientific research.** Whether you are:
+
+- A graduate student reading your first paper
+- An undergraduate entering a lab and need to quickly grasp new literature
+- A self-learner trying to understand cutting-edge research
+- Anyone who finds academic papers intimidating and wants a structured, guided reading experience
+
+Paper Reader helps you:
+1. **Understand** — Get a clear, structured overview before diving into the full text
+2. **Take notes** — Generate comprehensive Chinese research notes following the paper's own structure
+3. **Learn terminology** — Every key term is explained in bilingual format with inline examples
+4. **Build habits** — Follow the same reading order researchers use: abstract → intro → method → experiments → discussion
 
 ## 🚀 Quick Start
 
@@ -78,13 +89,13 @@ Fast metadata + abstract summary. Perfect for deciding whether to read a paper i
 Comprehensive Chinese Markdown research note following the paper's structure.
 
 **Output includes:**
-- Abstract精读 (Abstract deep read)
-- Introduction精读 (Introduction deep read)
-- Related Work (相关工作)
-- Method (方法) — most detailed section
-- Experiments (实验)
-- Discussion & Limitations (讨论与局限)
-- Conclusion & Future Work (结论与未来方向)
+- 摘要精读 (Abstract deep read)
+- 引言精读 (Introduction deep read)
+- 相关工作 (Related Work)
+- 方法 (Method) — most detailed section
+- 实验 (Experiments)
+- 讨论与局限 (Discussion & Limitations)
+- 结论与未来方向 (Conclusion & Future Work)
 - Inline bilingual terminology with explanations
 - Target size: 15-20KB
 
@@ -134,18 +145,6 @@ paper-reader/
 - **Data:** Citation count, venue, year, TL;DR summary
 - **Graceful degradation:** Returns empty if rate-limited or unavailable
 
-## 📊 Comparison with Alternatives
-
-| Feature | Paper Reader | DeepPaperNote | ARIS | PaperLocus |
-|---------|-------------|---------------|------|------------|
-| Zero setup | ✅ | ❌ | ❌ | ❌ |
-| No API keys | ✅ | ✅ | ✅ | ✅ |
-| Quick mode | ✅ | ❌ | ❌ | ❌ |
-| Chinese notes | ✅ | ✅ | ✅ | ✅ |
-| PDF download | ✅ | ❌ | ✅ | ✅ |
-| Multiple backends | 1 | 2+ | 5+ | 1 |
-| Size | ~10KB | ~50KB | ~500KB | ~30KB |
-
 ## 🤝 Contributing
 
 Contributions welcome! Please:
@@ -163,5 +162,4 @@ MIT License — feel free to use for personal or commercial projects.
 ## 🙏 Acknowledgments
 
 - Built on [arXiv API](https://arxiv.org/help/api/) and [Semantic Scholar API](https://www.semanticscholar.org/product/api)
-- Inspired by [DeepPaperNote](https://github.com/917Dhj/DeepPaperNote), [ARIS](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep), and [PaperLocus](https://github.com/...)
-- Designed for [Codex CLI](https://github.com/openai/codex), [Claude Code](https://claude.ai/code), and [Cursor](https://cursor.sh)
+- Designed for [Codex CLI](https://github.com/openai/codex), [Claude Code](https://claude.ai/code), [Cursor](https://cursor.sh), and other AI coding agents

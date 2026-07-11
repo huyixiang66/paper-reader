@@ -1,10 +1,10 @@
-﻿# 中文 README
-
-# Paper Reader
+﻿# Paper Reader
 
 **AI 编程助手的零依赖论文阅读 Skill。** 一条命令读懂任意 arXiv 论文——无需 API Key、无需安装、无需配置。
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/paper-reader?style=flat&logo=github)](https://github.com/yourusername/paper-reader/stargazers)
+专为**科研初学者**设计，帮助你系统化地阅读、理解和记录学术论文。
+
+[![GitHub stars](https://img.shields.io/github/stars/huyixiang66/paper-reader?style=flat&logo=github)](https://github.com/huyixiang66/paper-reader/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![arXiv API](https://img.shields.io/badge/arXiv-API-free-b31b1b?style=flat)](https://arxiv.org/help/api/)
@@ -21,6 +21,21 @@
 - **防幻觉设计** — 区分论文主张、证据、推论和开放问题
 - **双语术语** — `中文（English Term）` 格式，首次出现时 inline 解释
 - **结构化输出** — 按论文自身章节顺序组织（摘要→引言→方法→实验→结论）
+
+## 🎯 适合谁？
+
+**Paper Reader 专为科研初学者设计。** 无论你是：
+
+- 刚进实验室、第一次读论文研究生
+- 本科生进入课题组需要快速掌握文献
+- 自学者想了解前沿研究
+- 觉得学术论文太难啃、想要结构化引导的人
+
+Paper Reader 帮助你：
+1. **理解** — 在深入阅读全文前获得清晰的结构化概览
+2. **做笔记** — 生成按论文结构组织的中文精读笔记
+3. **学术语** — 每个关键术语都有中英对照和通俗解释
+4. **养成习惯** — 跟随研究者常用的阅读顺序：摘要→引言→方法→实验→讨论
 
 ## 🚀 快速开始
 
@@ -125,18 +140,6 @@ paper-reader/
 - **数据：** 引用数、会议、年份、TL;DR 摘要
 - **降级：** 限流时自动返回空，不影响核心功能
 
-## 📊 与其他方案对比
-
-| 功能 | Paper Reader | DeepPaperNote | ARIS | PaperLocus |
-|------|-------------|---------------|------|------------|
-| 零配置 | ✅ | ❌ | ❌ | ❌ |
-| 无需 API Key | ✅ | ✅ | ✅ | ✅ |
-| 快速模式 | ✅ | ❌ | ❌ | ❌ |
-| 中文笔记 | ✅ | ✅ | ✅ | ✅ |
-| PDF 下载 | ✅ | ❌ | ✅ | ✅ |
-| 多后端支持 | 1 | 2+ | 5+ | 1 |
-| 项目体积 | ~10KB | ~50KB | ~500KB | ~30KB |
-
 ## 🤝 贡献
 
 欢迎贡献！请：
@@ -154,5 +157,4 @@ MIT License — 个人和商业项目均可自由使用。
 ## 🙏 致谢
 
 - 基于 [arXiv API](https://arxiv.org/help/api/) 和 [Semantic Scholar API](https://www.semanticscholar.org/product/api)
-- 灵感来自 [DeepPaperNote](https://github.com/917Dhj/DeepPaperNote)、[ARIS](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep)
 - 为 [Codex CLI](https://github.com/openai/codex)、[Claude Code](https://claude.ai/code)、[Cursor](https://cursor.sh) 设计
