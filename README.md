@@ -1,0 +1,167 @@
+﻿# Paper Reader
+
+**Zero-dependency paper reading skill for AI coding agents.** Read any arXiv paper with a single command — no API keys, no setup, no installation.
+
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/paper-reader?style=flat&logo=github)](https://github.com/yourusername/paper-reader/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![arXiv API](https://img.shields.io/badge/arXiv-API-free-b31b1b?style=flat)](https://arxiv.org/help/api/)
+[![Semantic Scholar](https://img.shields.io/badge/Semantic_Scholar-API-free-orange?style=flat)](https://www.semanticscholar.org/product/api)
+[![Codex CLI](https://img.shields.io/badge/Codex_CLI-Compatible-green?style=flat&logo=data:image/svg+xml;base64,...)](https://github.com/openai/codex)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Compatible-purple?style=flat&logo=anthropic)](https://claude.ai/code)
+[![Cursor](https://img.shields.io/badge/Cursor-Compatible-orange?style=flat&logo=data:image/svg+xml;base64,...)](https://cursor.sh)
+
+> **TL;DR:** `paper-reader 1706.03762` → instant structured paper summary.  
+> `paper-reader 1706.03762 - mode: note` → full Chinese research note.  
+> `paper-reader 1706.03762 - mode: deep` → PDF download + full text analysis.
+
+## ✨ Features
+
+- **Zero setup** — no API keys, no pip install, no Docker. Just works.
+- **Three reading modes** — Quick overview, structured Chinese note, or deep PDF analysis
+- **Dual API fallback** — arXiv API (always available) + Semantic Scholar (enhanced metadata)
+- **Smart input parsing** — accepts arXiv IDs, URLs, DOIs, or paper titles
+- **Anti-hallucination** — separates paper claims, evidence, inference, and open questions
+- **Bilingual terminology** — `中文（English Term）` format with inline explanations
+- **Structured output** — follows the paper's own section order (Abstract → Introduction → Method → Experiments → Conclusion)
+
+## 🚀 Quick Start
+
+### Installation
+
+Copy the `paper-reader` folder to your agent's skills directory:
+
+```bash
+# For Codex CLI
+cp -r paper-reader ~/.codex/skills/paper-reader
+
+# For Claude Code
+cp -r paper-reader ~/.claude/skills/paper-reader
+
+# For Cursor / any SKILL.md-compatible agent
+cp -r paper-reader /path/to/your/skills/paper-reader
+```
+
+### Usage
+
+```bash
+# Quick summary (default)
+paper-reader "1706.03762"
+
+# Chinese research note (~15-20KB)
+paper-reader "1706.03762" - mode: note
+
+# Deep PDF analysis
+paper-reader "1706.03762" - mode: deep
+
+# From URL
+paper-reader "https://arxiv.org/abs/2401.12345"
+
+# From title
+paper-reader "Attention Is All You Need"
+```
+
+## 📖 Modes Explained
+
+### Quick Mode (Default)
+
+Fast metadata + abstract summary. Perfect for deciding whether to read a paper in depth.
+
+**Output includes:**
+- Paper title, authors, venue, year
+- Citation count (from Semantic Scholar)
+- Full abstract
+- 3-5 key points
+
+### Note Mode
+
+Comprehensive Chinese Markdown research note following the paper's structure.
+
+**Output includes:**
+- Abstract精读 (Abstract deep read)
+- Introduction精读 (Introduction deep read)
+- Related Work (相关工作)
+- Method (方法) — most detailed section
+- Experiments (实验)
+- Discussion & Limitations (讨论与局限)
+- Conclusion & Future Work (结论与未来方向)
+- Inline bilingual terminology with explanations
+- Target size: 15-20KB
+
+### Deep Mode
+
+Downloads PDF and performs full text extraction + analysis.
+
+**Output includes:**
+- PDF saved to local directory
+- Full structured note from extracted text
+- Explicit notes on any missing/unreadable sections
+
+## 🏗️ Architecture
+
+```
+paper-reader/
+├── SKILL.md              # Agent skill definition
+├── scripts/
+│   └── fetch_metadata.py # Python script for API calls
+├── tests/
+│   └── test_metadata.py  # Unit tests
+├── LICENSE
+├── README.md
+└── CHANGELOG.md
+```
+
+### How It Works
+
+1. **Input Parsing** — Extracts arXiv ID from various input formats (bare ID, URL, DOI, title)
+2. **Metadata Fetching** — Queries arXiv API (primary) + Semantic Scholar API (optional enhancement)
+3. **Mode Dispatch** — Routes to Quick/Note/Deep mode based on flags
+4. **Output Generation** — Structured summary or full Chinese research note
+
+## 🔧 API Details
+
+### arXiv API (Primary)
+
+- **Endpoint:** `http://export.arxiv.org/api/query`
+- **Rate limit:** None (public academic API)
+- **Data:** Title, abstract, authors, categories, publication date
+- **Fallback:** Always available
+
+### Semantic Scholar API (Enhancement)
+
+- **Endpoint:** `https://api.semanticscholar.org/graph/v1/paper/search`
+- **Rate limit:** 100 requests/minute (free tier)
+- **Data:** Citation count, venue, year, TL;DR summary
+- **Graceful degradation:** Returns empty if rate-limited or unavailable
+
+## 📊 Comparison with Alternatives
+
+| Feature | Paper Reader | DeepPaperNote | ARIS | PaperLocus |
+|---------|-------------|---------------|------|------------|
+| Zero setup | ✅ | ❌ | ❌ | ❌ |
+| No API keys | ✅ | ✅ | ✅ | ✅ |
+| Quick mode | ✅ | ❌ | ❌ | ❌ |
+| Chinese notes | ✅ | ✅ | ✅ | ✅ |
+| PDF download | ✅ | ❌ | ✅ | ✅ |
+| Multiple backends | 1 | 2+ | 5+ | 1 |
+| Size | ~10KB | ~50KB | ~500KB | ~30KB |
+
+## 🤝 Contributing
+
+Contributions welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+MIT License — feel free to use for personal or commercial projects.
+
+## 🙏 Acknowledgments
+
+- Built on [arXiv API](https://arxiv.org/help/api/) and [Semantic Scholar API](https://www.semanticscholar.org/product/api)
+- Inspired by [DeepPaperNote](https://github.com/917Dhj/DeepPaperNote), [ARIS](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep), and [PaperLocus](https://github.com/...)
+- Designed for [Codex CLI](https://github.com/openai/codex), [Claude Code](https://claude.ai/code), and [Cursor](https://cursor.sh)
